@@ -169,7 +169,8 @@ def handle(data):
 fs_app_id = "cli_xxxxxxxxxxxxxxxx"      # 替换为你的 App ID
 fs_app_secret = "xxxxxxxxxxxxxxxx"       # 替换为你的 App Secret
 
-# 允许使用的用户 Open ID 列表（留空则允许所有人，建议填写以限制访问权限）
+# 允许使用的用户 Open ID 列表（留空则允许所有人，强烈建议填写以限制访问权限）
+# 注意：不填写 fs_allowed_users 意味着任何知道你机器人名称的人都能控制你的电脑！
 fs_allowed_users = [
     "ou_xxxxxxxxxxxxxxxxxxxxxxxx",       # 你的 Open ID
 ]
@@ -202,5 +203,5 @@ python frontends/fsapp.py
 ### 预期输出
 
 ```
-========================
+===============
 ```
