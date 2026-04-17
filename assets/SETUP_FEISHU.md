@@ -176,6 +176,8 @@ fs_allowed_users = [
 ]
 ```
 
+> 💡 **提示**：`fs_allowed_users` 务必填写，否则任何人都可以通过机器人操控你的电脑。Open ID 可在首次收到消息时从程序日志中获取。
+
 ### 确认 LLM 配置
 
 确保 `llmcore/mykeys` 中已配置 LLM API 密钥：
@@ -197,11 +199,5 @@ claude_config = {
 
 ```bash
 cd /path/to/pc-agent-loop
-python frontends/fsapp.py
-```
-
-### 预期输出
-
-```
-===============
+python 
 ```
