@@ -36,6 +36,10 @@ def get_system_prompt():
     # include day of week so the agent can reason about weekends/schedules
     prompt += f"\nToday: {time.strftime('%Y-%m-%d %a %H:%M')}\n"
     prompt += get_global_memory()
+    # append contents of a local personal notes file if it exists
+    personal_notes = os.path.join(script_dir, 'assets/personal_notes.txt')
+    if os.path.exists(personal_notes):
+        prompt += "\n[Personal Notes]\n" + open(personal_notes, 'r', encoding='utf-8').read() + "\n"
     return prompt
 
 class GeneraticAgent:
@@ -50,4 +54,4 @@ class GeneraticAgent:
                 if 'native' in k and 'claude' in k: llm_sessions += [NativeToolClient(NativeClaudeSession(cfg=cfg))]
                 elif 'native' in k and 'oai' in k: llm_sessions += [NativeToolClient(NativeOAISession(cfg=cfg))]
                 elif 'claude' in k: llm_sessions += [ToolClient(ClaudeSession(cfg=cfg))]
-                elif 'oai' in k: llm_sessions += [ToolClient(LLMSession(cfg=cfg))]
+          
